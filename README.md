@@ -1,2 +1,4 @@
 # ddpm-from-scratch
-Implement DDPM from Scratch
+Goal: Implement DDPM from Scratch
+Work in Progress
+
