@@ -16,7 +16,10 @@ def test_q_sample_final_step():
     assert xt.shape == x0.shape
     coeff = alphas_bar[t].reshape(-1, 1, 1, 1)
     expected_xt = torch.sqrt(coeff) * x0 + torch.sqrt(1 - coeff) * noise
+
+    # Regression check against the DDPM equation; not an independent validation.
     assert torch.allclose(xt, expected_xt)
+    
     assert abs(xt.mean().item()) < 0.02
     assert abs(xt.std().item() - 1) < 0.02
 
